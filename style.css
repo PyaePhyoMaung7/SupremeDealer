@@ -1,0 +1,738 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    list-style: none;
+}
+/* global color */
+:root{
+    --main-color: #1e88e5;
+    --text-color: white;
+    --bg-color: #212121;
+    --bg-black: #020307;
+    --card-bg-color: #424242;
+}
+/* scroll bar */
+html::-webkit-scrollbar{
+    width: 0.5rem;
+    background-color: var(--bg-color);
+}
+html::-webkit-scrollbar-thumb{
+    background-color: var(--main-color);
+    border-radius: 0.5rem;
+}
+
+a:visited, a:link{
+    color: var(--text-color);
+}
+.pt, a, button{
+    cursor: pointer;
+}
+body{
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    height: 3000px;
+    overflow-x:hidden;
+}
+.featured, .services, .latest-offers, .latest-blog-posts, .contact{
+    padding: 2rem 5rem;
+}
+.home, .featured, .services, .latest-offers, .experience, .latest-blog-posts, .contact{
+    width: 100%;
+}
+header{
+    width: 100vw;
+    position: fixed;
+    top: 0;
+    z-index: 11;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1.5rem 5rem;
+    transition: 0.5s;
+    background-color: var(--bg-black);
+}
+.logo{
+    font-size: 1.3rem;
+    font-weight: 600;
+    color: var(--text-color);
+    display: flex;
+    align-items: center;
+}
+.logo i{
+    font-size: 2.5rem;
+    margin-right: 10px;
+}
+.navbar{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    column-gap: 2rem;
+}
+.navbar a{
+    font-size: 1.2rem;
+    font-weight: 500;
+}
+.navbar li{
+    position: relative;
+}
+.navbar .menuItem::after{
+    content: "";
+    width: 0;
+    height: 2px;
+    background-color: var(--main-color);
+    position: absolute;
+    bottom: -4px;
+    left: 0;
+    transition: 0.3s;
+}
+.navbar a:hover::after{
+    width: 100%;
+}
+header .search:hover{
+    transform: scale(1.2);
+    color: var(--main-color);
+}
+.lens-sign{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+header .search{
+    font-size: 1.5rem;
+    transition: 0.3s;
+    margin-right: 1.5rem;
+}
+.sign-in-btn{
+    background-color: var(--bg-color);
+    padding: 0.5rem;
+    font-size: 1.2rem;
+    margin-left: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--bg-black);
+}
+.sign-in-btn:hover, .email button:hover{
+    box-shadow: 2px 2px 5px var(--text-color);
+}
+/*Cover section*/
+.container{
+    width: 100%;
+    min-height: 700px;
+    position: relative;
+    display: flex;
+    overflow: hidden;
+}
+.container img{
+    position: absolute;
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    top: 8%;
+}
+.overlay-text{
+    padding: 7rem 5rem 0 5rem;
+}
+.cover-text h1{
+    color: var(--text-color);
+    font-size: 3.5rem;
+    margin-bottom: 20px;
+    text-shadow: 1px 1px 5px var(--bg-black);
+}
+.cover-text p{
+    color: var(--text-color);
+    font-size: 1.5rem;
+    margin-bottom: 40px;
+    font-weight: 400;
+    margin-right: 100px;
+    max-width: 711px;
+}
+.cover-text .btn{
+    background-color: var(--main-color);
+    padding: 1rem 1rem;
+    color: var(--text-color);
+    font-size: 1.3rem;
+    font-weight: 200;
+}
+.cover-text .btn:hover{
+    filter: brightness(1.3)
+}
+/* featured cars */
+.featured, .latest-blog-posts, .latest-offers{
+    text-align: center;
+}
+.heading{
+    margin-bottom: 1.5rem;
+    font-size: 2rem;
+    font-weight: 700 ;
+}
+.heading span{
+    color: var(--main-color);
+}
+.heading-text{
+    font-size: 1.3rem;
+    margin-bottom: 3rem;
+}
+.carlist{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.car-card, .blog-card{
+    background-color: var(--card-bg-color);
+    border-radius: 0.5rem;
+    overflow: hidden;
+    transition: 0.5s;
+}
+.car-card .car-img, .blog-card .blog-img{
+    width: 100%;
+    height: 250px;
+    position: relative;
+}
+.car-card .car-img img, .blog-card img{
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: 0.5s;
+}
+.car-img .type{
+    position: absolute;
+    top: 1rem;
+    left: 1rem;
+    background-color: var(--main-color);
+    padding: 0.5rem;
+    border-radius: 0.3rem;
+}
+.car-img .price{
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    font-size: 1.1rem;
+}
+.car-card .description{
+    padding: 1rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    row-gap: 1rem;
+}
+
+.car-card .model{
+    font-weight: 600;
+    font-size: 1.3rem;
+}
+.car-card .description i{
+    margin-right: 0.2rem;
+    color: var(--main-color);
+}
+.car-card .description .location{
+    font-size: 1.2rem;
+}
+.car-card .description .specs{
+    display: flex;
+    flex-wrap: wrap;
+}
+.car-card .description .specs span{
+    display: inline-block;
+    border: 1px solid var(--main-color);
+    border-radius: 0.5rem;
+    font-size: 1rem;
+    padding: 0.5rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    background-color: var(--bg-black);
+}
+.car-card:hover{
+    transform: scale(1.05);
+    z-index: 1;
+    box-shadow: 3px 3px 10px var(--main-color);
+}
+/* services */
+.services{
+    width: 100%;
+    font-size: 1.1rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.services-left{
+}
+.services-right{
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.right-upper, .right-lower{
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+}
+.service-card{
+    width: 48%;
+    background-color: var(--card-bg-color);
+    padding: 1.5rem;
+    border-radius: 0.5rem;
+    margin-top: 1.8rem;
+    transition: 0.5s;
+}
+.service-card:hover{
+    box-shadow: 4px 4px 10px var(--text-color);
+}
+.service-card .service-heading{
+    margin: 1rem 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.service-heading i{
+    font-size: 2.5rem;
+}
+.service-card h3{
+    font-weight: 500;
+    font-size: 1.5rem;
+}
+.service-card .read-more{
+    display: block;
+    margin-top: 1rem;
+    color: var(--main-color);
+}
+/* latest offers */
+.latest-offered-cars{
+    display: grid;
+    grid-template-columns: repeat(3,1fr);
+    grid-template-rows: repeat(5,6.3vw);
+    gap: 1rem;
+    position: relative;
+}
+.grid-car{
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+}
+.grid-car .arrival{
+    position: absolute;
+    top: 1rem;
+    right: 1rem;
+    background-color: var(--main-color);
+    color: var(--text-color);
+    padding: 1rem;
+    border-radius: 0.3rem;
+}
+.grid-car img{
+    z-index: -1;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    grid-gap: 1.5rem;
+    transition: 0.5s;
+}
+.cap{
+    /* display: flex;
+    justify-content: space-evenly;
+    flex-wrap: wrap; */
+    position: absolute;
+    text-align: left;
+    left: 1rem;
+    bottom: 1rem;
+    padding: 2px;
+    margin: 0 auto;
+}
+
+.grid-car p, .grid-car .about-car{
+    font-size: 1.1rem;
+    margin-bottom: 0.5rem;
+    text-shadow: 1px 1px 3px var(--bg-black);
+}
+.about-car{
+    display: inline-block;
+    background-color: var(--text-color);
+    color: var(--bg-black);
+    border-radius: 0.5rem;
+    padding: 3px;
+}
+.cap span{
+    font-size: 1.3rem;
+    
+}
+.cap .price{
+    color: var(--main-color);
+}
+.grid-car img:hover{
+    transform: scale(1.2);
+
+}
+.car4{
+    grid-area: 1 / 1 / span 2 / 2;
+}
+.car2{
+    grid-area: 1 / 2 / span 2 / 3;
+}
+.car1{
+    grid-area: 1 / 3 / span 5 / 4;
+}
+.car3{
+    grid-area: 3 / 1 / span 3 / span 2;
+}
+/*experience */
+.experience{
+    width: 100%;
+    min-height: 500px;
+    margin-top: 6rem;
+    display: flex;
+    position: relative;
+    align-items: center;
+    overflow: hidden;
+
+}
+.experience h1{
+    text-shadow: 1px 1px 5px var(--bg-black);
+    font-size: 3rem;
+}
+.experience img{
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+    position: absolute;
+    object-fit: cover;
+    object-position: center;
+    
+}
+.exp-description{
+    padding: 0 100px;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.exp-description .right{
+    display: grid;
+    grid-template-columns: repeat(2,5fr);
+    grid-template-rows: repeat(2,3fr);
+    gap: 2rem;
+}
+.experience .right .reviews{
+    display: flex;
+    padding: 1.5rem;
+    border: none;
+    background-color: #21212165;
+    color: var(--text-color);
+}
+.experience .right .reviews i{
+    color: var(--main-color);
+    font-size: 2.7rem;
+    margin-right: 1.3rem;
+}
+.no{
+    color: var(--text-color);
+    font-size: 2rem;
+    text-shadow: 1px 1px 5px var(--bg-black);
+}
+.experience .right .reviews .detail{
+    font-size: 1.2rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+/* blogs */
+.blog-area{
+    width: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit,minmax(250px,auto));
+    gap: 1rem;
+    margin-top: 2rem;
+}
+.blog-card{
+    display: flex;
+    flex-direction: column;
+    text-align: start;
+}
+.blog-img{
+    overflow: hidden;
+}
+.blog-img img:hover{
+    transform: scale(1.2);
+}
+.blog-card .topic{
+    padding: 1.5rem;
+}
+.blog-img, .blog-card h3, .blog-card p, .date-com{
+    margin-bottom: 1rem;
+}
+.blog-card h3 {
+    font-size: 1.3rem;
+    font-weight: 550;
+}
+.blog-card p, .date-com span{
+    font-size: 1.1rem;
+}
+.date-com i{
+    color: var(--main-color);
+}
+.date-com{
+    display: flex;
+}
+.date-com .date{
+    margin-right: 2rem;
+}
+/* contact */
+.contact{
+    font-size: 1rem;
+    display: flex;
+    justify-content: space-between;
+}
+.contact-info{
+    width: 25%;
+}
+.useful-links{
+    width: 15%;
+}
+.recent-cars{
+    width: 25%;
+}
+.subscribe{
+    width: 25%;
+}
+.contact-info h2, .useful-links h2,.recent-cars h2,.subscribe h2{
+    margin-bottom: 2rem;
+    font-weight: 400;
+}
+.contact-info li, .useful-links li{
+    display: flex;
+    margin-bottom: 1rem;
+}
+.contact-info li i{
+    margin-right: 1rem;
+}
+.recent-cars li{
+    width: 100%;
+    height: 33%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 2rem;
+}
+.recent-car-img{
+    width: 30%;
+}
+.recent-car-img img{
+    border-radius: 0.5rem;
+    width: 100%;
+    height: 100%;
+}
+.recent-car-description p{
+    padding: 0.7rem;
+
+}
+.email{
+    display: flex;
+    justify-content: space-between;
+}
+.subscribe p{
+    margin-bottom: 2rem;
+    line-height: 1.5rem;
+}
+
+.email input{
+    border-radius: 0.5rem;
+    font-size: 1.1rem;
+    width: 72%;
+    height: 3rem;
+    padding-left: 1rem;
+    border: none;
+}
+.email input:focus{
+    outline-color: var(--main-color);
+}
+.email button{
+    background-color: var(--main-color);
+    border-radius: 0.5rem;
+    width: 20%;
+    border: none;
+}
+.email button i{
+    font-size: 1.3rem;
+}
+@media(max-width:1175px){
+    .useful-links{
+        display: none;
+    }
+    .contact-info,.recent-cars,.subscribe{
+        width: 30%;
+    }
+}
+@media(max-width:1160px){
+    .arrival{
+        display: none;
+        
+    }
+}
+@media(max-width:1135px){
+    .navbar{
+        display: none;
+    }
+}
+@media(max-width:1110px){
+    .services{
+        flex-direction: column;
+    }
+    .services-left{
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+    .services-right{
+        width: 100%;
+    }
+}
+@media(max-width:970px){
+    .recent-cars{
+        display: none;
+    }
+    .contact{
+        flex-direction: column;
+    }
+    .contact-info{
+        width: 100%;
+    }
+    .subscribe{
+        width: 100%;
+    }
+    .exp-description .left h1{
+        font-size: 2.5rem;
+    }
+}
+@media(max-width:905px){
+    .experience .exp-description{
+        flex-direction: column;
+    }
+    .exp-description .right{
+        display: flex;
+        flex-direction: row;
+    }
+}
+@media(max-width:890px){
+    .cover-text h1{
+        display: flex;
+        flex-direction: column;
+    }
+    .cover-text p{
+        max-width: 418px;
+        text-shadow: 1px 1px 3px var(--bg-black);
+    }
+    .latest-offered-cars{
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: center;
+    }
+    .latest-offered-cars .grid-car{
+        width: 48%;
+        height: 200px;
+    }
+}
+@media(max-width:860px){
+    .exp-description .right{
+        flex-wrap: wrap;
+    }
+}
+@media(max-width:701px){
+    .exp-description .left h1{
+        margin-top: 3rem;
+    }
+}
+@media(max-width:670px){
+    .latest-offered-cars .grid-car{
+        width: 100%;
+    }
+}
+@media(max-width:650px){
+    .services .service-heading{
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+    }
+    .services .service-heading i{
+        margin-top: 1rem;
+    }
+    .services .service-card p{
+        display: none;
+    }
+}
+@media(max-width:590px){
+    .logo{
+        display: flex;
+        flex-direction: column;
+    }
+    .overlay-text{
+        margin-top: 2rem;
+    }
+}
+
+@media(max-width:520px){
+    .featured,.services, .latest-offers, .latest-blog-posts, .contact{
+        padding: 2rem 3rem;
+    }
+    header{
+        padding: 1.5rem 3rem;
+    }
+    .overlay-text{
+        padding-left: 3rem;
+    }
+}
+@media(max-width:495px){
+    .cover-text .intro{
+        display: none;
+    }
+}
+@media(max-width:480px){
+    .site-name{
+        display: none;
+    }
+}
+@media(max-width:470px){
+    header{
+        display: flex;
+        flex-direction: column;
+    }
+    .logo{
+        align-self: flex-start;
+        flex-direction: row;
+    }
+    .lens-sign{
+        align-self: flex-end;
+        justify-content: space-between;
+    }
+    .overlay-text{
+        margin-top: 3rem;
+    }
+    
+}
+@media(max-width:400px){
+    .featured,.services, .latest-offers, .latest-blog-posts, .contact{
+        padding: 2rem 1rem;
+    }
+    header{
+        padding: 1.5rem 1rem;
+    }
+    .overlay-text{
+        padding-left: 1rem;
+    }
+    .exp-description .left h1{
+        font-size: 2.3rem;
+    }
+}
+@media(max-width:305px){
+    .exp-description .left h1 span{
+        font-size: 1.8rem;
+    }
+}
